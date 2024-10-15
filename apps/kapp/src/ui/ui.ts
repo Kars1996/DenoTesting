@@ -1,4 +1,4 @@
-import { cyan, green, red, white, bold, gray } from "kolorist";
+import { cyan, green, white, bold, gray } from "kolorist";
 
 export default class UI {
     public static divider(): void {
@@ -14,5 +14,13 @@ export default class UI {
         this.divider();
     }
 
-}
+    public static print(text: string): void {
+        console.log(bold(text));
+    }
 
+    public static footer(): void {
+        this.divider();
+        console.log(green("Testing completed successfully"));
+        this.divider();
+    }
+}
