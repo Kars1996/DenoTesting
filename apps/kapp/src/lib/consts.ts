@@ -2,7 +2,7 @@
 
 export const templateOptions: Record<string, string[]> = {
     "Next.js": ["Template", "APITemplate"],
-    "Discord.js": ["DJS14Template", "DJS14Base"],
+    "Discord.js": ["DJS14Template"],
 };
 
 export const icons: Record<string, string> = {
@@ -10,4 +10,4 @@ export const icons: Record<string, string> = {
     "Discord.js": "§",
 };
 
-export type templateTypes = keyof typeof templateOptions
+export type templateTypes = keyof typeof templateOptions;
