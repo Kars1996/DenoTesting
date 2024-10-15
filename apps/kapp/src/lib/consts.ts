@@ -10,4 +10,8 @@ export const icons: Record<string, string> = {
     "Discord.js": "§",
 };
 
+export const templatePaths: Record<string, string> = {
+    "Next.js": "next",
+    "Discord.js": "js",
+};
 export type templateTypes = keyof typeof templateOptions;

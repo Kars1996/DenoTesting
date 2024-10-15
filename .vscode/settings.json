@@ -1,5 +1,9 @@
 {
-    "cSpell.words": [
-        "kolorist"
-    ]
+    "cSpell.words": ["kolorist"],
+    "typescript.preferences.autoImportFileExcludePatterns": [
+        "next/router.d.ts",
+        "next/dist/client/router.d.ts",
+        "lucide-react"
+    ],
+    "typescript.preferences.preferTypeOnlyAutoImports": true
 }
