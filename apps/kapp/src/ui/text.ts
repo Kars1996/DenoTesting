@@ -1,3 +1,5 @@
+#!/usr/bin/env deno
+
 import prompts from "prompts";
 import UI from "./ui.ts";
 

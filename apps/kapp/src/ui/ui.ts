@@ -1,3 +1,5 @@
+#!/usr/bin/env deno
+
 import { cyan, green, white, bold, gray } from "kolorist";
 
 export default class UI {
