@@ -22,3 +22,5 @@ if (import.meta.main) {
     console.log("Multiply 2 * 3 =", Calculator.multiply(2, 3));
     console.log("Divide 10 / 2 =", Calculator.divide(10, 2));
 }
+
+export default Calculator
