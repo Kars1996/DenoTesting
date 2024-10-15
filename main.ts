@@ -1,22 +1,18 @@
-function stringCheck(word: string): boolean {
-    const seenChars: string[] = [];
-    for (let i = 0; i < word.length; i++) {
-        if (seenChars.includes(word[i])) {
-            return false;
-        }
-        seenChars.push(word[i]);
-    }
-    return true;
-}
+function _addBinary(one: string, two: string): string {
+    let result: string = "";
+    let carry: number = 0;
+    let i = one.length - 1;
+    let j = two.length - 1;
 
-if (import.meta.main) {
-    console.log(stringCheck("hello"));
-    console.log(stringCheck("world"));
-    console.log(stringCheck("abc"));
-    console.log(stringCheck("aabbcc"));
-    console.log(stringCheck("12345"));
-    console.log(stringCheck("123456"));
-    console.log(stringCheck("abcdefghijklmnopqrstuvwxyz"));
-    console.log(stringCheck("zyxwvutsrqponmlkjihgfedcba"));
-    console.log(stringCheck("1234567890"));
+    while (i >= 0 || j >= 0 || carry > 0) {
+        const bit1 = i >= 0 ? parseInt(one[i]) : 0;
+        const bit2 = j >= 0 ? parseInt(two[j]) : 0;
+
+        const sum = bit1 + bit2 + carry;
+        result = (sum % 2).toString + result;
+        carry = sum / 2;
+        i -= 1;
+        j -= 1;
+    }
+    return result;
 }
