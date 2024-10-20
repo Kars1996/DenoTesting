@@ -1,6 +1,6 @@
 #!/usr/bin/env deno
 
-import { cyan, green, white, bold, gray } from "kolorist";
+import { cyan, green, white, bold, gray, red } from "kolorist";
 
 export default class UI {
     public static divider(): void {
@@ -16,8 +16,9 @@ export default class UI {
         this.divider();
     }
 
-    public static print(text: string): void {
-        console.log(bold(text));
+    public static print(text: string, isRed?: boolean): void {
+        const color = isRed ? red(text) : text;
+        console.log(bold(color));
     }
 
     public static footer(): void {

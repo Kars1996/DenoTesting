@@ -5,8 +5,8 @@ import {
     templateOptions,
     templatePaths,
 } from "../lib/consts.ts";
-import { ensureDir } from "https://deno.land/std/fs/ensure_dir.ts";
-import { join, resolve } from "https://deno.land/std/path/mod.ts";
+import { ensureDir } from "@std/fs";
+import { join, resolve } from "@std/path";
 import { unzip } from "npm:unzipit@1.4.3";
 
 export default class Download {
