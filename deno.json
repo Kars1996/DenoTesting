@@ -8,7 +8,8 @@
     "@std/path": "jsr:@std/path@^1.0.6",
     "@std/tar": "jsr:@std/tar@^0.1.2",
     "kolorist": "npm:kolorist@^1.8.0",
-    "prompts": "npm:prompts@^2.4.2"
+    "prompts": "npm:prompts@^2.4.2",
+    "unzipit": "npm:unzipit@1.4.3"
   },
   "compilerOptions": {
     "strict": true
