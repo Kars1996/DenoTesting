@@ -5,7 +5,7 @@ import { ensureDir } from "@std/fs";
 import _UI from "../ui/ui.ts";
 
 export default class PathUtils {
-    public async resolvePath(path: string): Promise<string> {
+    public static async resolvePath(path: string): Promise<string> {
         let absPath: string;
         if (path === "/" || path === ".") {
             absPath = Deno.cwd();

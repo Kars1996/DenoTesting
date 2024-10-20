@@ -1,6 +1,7 @@
 #!/usr/bin/env deno
 import UI from "./ui/ui.ts";
 import Prompts from "./ui/prompts.ts";
+import Path from "./utils/path.ts";
 import Download from "./utils/download.ts";
 import templateOptions, { icons, templatePaths } from "./lib/consts.ts";
 
@@ -22,11 +23,13 @@ if (import.meta.main) {
         "Select a template category",
         Object.keys(templateOptions) as (keyof typeof templateOptions)[]
     );
-    earlyExit(templateCategory)
+    earlyExit(templateCategory);
     const template = await Prompts.choice(
         `${icons[templateCategory]} Select a template`,
         templateOptions[templateCategory]
     );
-    earlyExit(template)
-
+    earlyExit(template);
+    let path: string = await Prompts.text("Select a file path");
+    earlyExit(path);
+    path = await Path.resolvePath(path);
 }
