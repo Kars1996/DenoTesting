@@ -1,9 +1,13 @@
 #!/usr/bin/env deno run --allow-read --allow-write --allow-net
 
-import { templateTypes, templateOptions } from "../lib/consts.ts";
-import { ensureDir } from "@std/fs";
-import { join, resolve } from "@std/path";
-import { unzip } from "@std/tar";
+import {
+    templateTypes,
+    templateOptions,
+    templatePaths,
+} from "../lib/consts.ts";
+import { ensureDir } from "https://deno.land/std/fs/ensure_dir.ts";
+import { join, resolve } from "https://deno.land/std/path/mod.ts";
+import { unzip } from "npm:unzipit@1.4.3";
 
 export default class Download {
     private static _path: string = "./src/release";
@@ -15,34 +19,42 @@ export default class Download {
     }
 
     public async downloadTemplate(
-        template: templateTypes,
+        framework: templateTypes,
         templateName: string
     ): Promise<void> {
-        if (!templateOptions[template]?.includes(templateName)) {
+        if (!templateOptions[framework]?.includes(templateName)) {
             throw new Error(
-                `Invalid template: ${templateName} for ${template}`
+                `Invalid template: ${templateName} for ${framework}`
             );
         }
 
         const zipName: string = `${templateName}.zip`;
-        const srcPath = join(this.releasePath, zipName);
+        const srcPath = join(
+            this.releasePath,
+            templatePaths[framework],
+            zipName
+        );
         const destPath = join(this.outputPath, templateName);
 
         try {
             await ensureDir(destPath);
-
             const zipData = await Deno.readFile(srcPath);
-            for await (const entry of unzip(zipData)) {
-                const entryPath = join(destPath, entry.fileName);
+            const { entries } = await unzip(zipData);
 
-                // Ensure directory exists for nested files
-                if (entry.isFile) {
-                    await ensureDir(join(destPath, entry.fileName));
-                    await Deno.writeFile(entryPath, await entry.read());
+            for (const [name, entry] of Object.entries(entries)) {
+                const entryPath = join(destPath, name);
+                if (entry.isDirectory) {
+                    await ensureDir(entryPath);
+                } else {
+                    await ensureDir(join(destPath, name, ".."));
+                    const content = await entry.arrayBuffer();
+                    await Deno.writeFile(entryPath, new Uint8Array(content));
                 }
             }
 
-            console.log(`Downloaded and extracted ${templateName} template`);
+            console.log(
+                `Downloaded and extracted ${templateName} template for ${framework}`
+            );
         } catch (error) {
             console.error(
                 `Failed to copy template: ${(error as Error).message}`
