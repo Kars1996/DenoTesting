@@ -15,3 +15,5 @@ export const templatePaths: Record<string, string> = {
     "Discord.js": "js",
 };
 export type templateTypes = keyof typeof templateOptions;
+
+export default templateOptions
