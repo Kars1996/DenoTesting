@@ -8,6 +8,7 @@ import {
 import { ensureDir } from "@std/fs";
 import { join, resolve } from "@std/path";
 import { unzip } from "npm:unzipit@1.4.3";
+import UI from "../ui/ui.ts";
 
 export default class Download {
     private static _path: string = "./src/release";
@@ -52,13 +53,13 @@ export default class Download {
                 }
             }
 
-            console.log(
+            UI.print(
                 `Downloaded and extracted ${templateName} template for ${framework}`
             );
         } catch (error) {
-            console.error(
-                `Failed to copy template: ${(error as Error).message}`
-            );
+            // console.error(
+            //     `Failed to copy template: ${(error as Error).message}`
+            // );
             throw error;
         }
     }
