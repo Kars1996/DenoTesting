@@ -5,6 +5,7 @@ import Prompts from "./ui/prompts.ts";
 import Path from "./utils/path.ts";
 import Download from "./utils/download.ts";
 import templateOptions, { icons } from "./lib/consts.ts";
+import GitSetup from "./utils/git.ts";
 
 const isDev: boolean = Deno.args.includes("--dev");
 
@@ -51,8 +52,10 @@ if (import.meta.main) {
         UI.footer();
         Deno.exit(1);
     }
-    const _projectName = Prompts.text(
+    const projectName = await Prompts.text(
         "What is your project's name",
         "kars-project"
     );
+    GitSetup(projectName, isDev);
+    UI.footer();
 }
