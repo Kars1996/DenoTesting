@@ -1,7 +1,8 @@
 {
     "cSpell.words": [
         "consts",
-        "kolorist"
+        "kolorist",
+        "yocto"
     ],
     "typescript.preferences.autoImportFileExcludePatterns": [
         "next/router.d.ts",

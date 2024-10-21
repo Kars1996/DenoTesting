@@ -9,7 +9,8 @@
     "@std/tar": "jsr:@std/tar@^0.1.2",
     "kolorist": "npm:kolorist@^1.8.0",
     "prompts": "npm:prompts@^2.4.2",
-    "unzipit": "npm:unzipit@1.4.3"
+    "unzipit": "npm:unzipit@1.4.3",
+    "yocto-spinner": "npm:yocto-spinner@^0.1.1"
   },
   "compilerOptions": {
     "strict": true

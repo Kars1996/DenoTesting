@@ -9,7 +9,9 @@
     "jsr:@std/tar@~0.1.2": "0.1.2",
     "npm:kolorist@^1.8.0": "1.8.0",
     "npm:prompts@^2.4.2": "2.4.2",
-    "npm:unzipit@1.4.3": "1.4.3"
+    "npm:unzipit@1.4.3": "1.4.3",
+    "npm:yocto-spinner@*": "0.1.1",
+    "npm:yocto-spinner@~0.1.1": "0.1.1"
   },
   "jsr": {
     "@std/assert@1.0.6": {
@@ -65,6 +67,15 @@
     },
     "uzip-module@1.0.3": {
       "integrity": "sha512-AMqwWZaknLM77G+VPYNZLEruMGWGzyigPK3/Whg99B3S6vGHuqsyl5ZrOv1UUF3paGK1U6PM0cnayioaryg/fA=="
+    },
+    "yocto-spinner@0.1.1": {
+      "integrity": "sha512-vb6yztJdmbX9BwiR2NlKim7roGM5xFFhiTO6UstNiKBnh8NT6uFNjpXYC6DWTnLgRRyHh2nDNEM8kLHSRLw4kg==",
+      "dependencies": [
+        "yoctocolors"
+      ]
+    },
+    "yoctocolors@2.1.1": {
+      "integrity": "sha512-GQHQqAopRhwU8Kt1DDM8NjibDXHC8eoh1erhGAJPEyveY9qqVeXvVikNKrDz69sHowPMorbPUrH/mx8c50eiBQ=="
     }
   },
   "redirects": {
@@ -281,7 +292,8 @@
       "jsr:@std/tar@~0.1.2",
       "npm:kolorist@^1.8.0",
       "npm:prompts@^2.4.2",
-      "npm:unzipit@1.4.3"
+      "npm:unzipit@1.4.3",
+      "npm:yocto-spinner@~0.1.1"
     ]
   }
 }
