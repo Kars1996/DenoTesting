@@ -1,9 +1,22 @@
-// TODO: Function to edit name of project
+// import { existsSync } from "@std/fs";
 
-export default class ProjectEdit {
-    private static readonly _defaultName: string = "kars-project";
+// class ProjectEdit {
+//     private readonly _projectName: string;
 
-    private static parseName(name: string): string {
-        return name.replace(" ", "-").toLowerCase();
-    }
-}
+//     constructor(projectName: string) {
+//         this._projectName = projectName;
+//     }
+
+//     public static parseName(name: string): string {
+//         return name.replace(" ", "-").toLowerCase();
+//     }
+// }
+
+// export default async function projectConfig(
+//     projectName: string
+// ): Promise<void> {
+//     if (existsSync("package.json")) {
+//         const data = JSON.parse(fs.readFile("package.json"));
+//         data.name = 
+//     }
+// }
