@@ -79,6 +79,7 @@ class Github {
 }
 
 export default async function GitSetup(projectName: string, isDev: boolean) {
+    if (isDev) return;
     if (
         await Prompts.booleanChoice("Would you like to use git setup options")
     ) {
