@@ -40,6 +40,7 @@ if (import.meta.main) {
                 templateCategory as keyof typeof templateOptions,
                 template
             );
+            UI.print("Project Downloaded Successfully");
         }
     } catch (err) {
         if (err instanceof Error) {
@@ -50,4 +51,8 @@ if (import.meta.main) {
         UI.footer();
         Deno.exit(1);
     }
+    const _projectName = Prompts.text(
+        "What is your project's name",
+        "kars-project"
+    );
 }

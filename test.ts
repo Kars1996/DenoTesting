@@ -1,13 +1,8 @@
-import yoctoSpinner from "npm:yocto-spinner";
+import Prompts from "./src/ui/prompts.ts";
 
-const spinner = yoctoSpinner({
-    text: "Loading unicorns",
-}).start();
-
-setTimeout(() => {
-    spinner.text = "Calculating splines";
-}, 2000);
-
-setTimeout(() => {
-    spinner.success("Finished!");
-}, 5000);
+console.log(
+    await Prompts.choice("Pick an operation", [
+        "Create a repository",
+        "existing repository",
+    ])
+);
