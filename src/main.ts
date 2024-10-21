@@ -1,4 +1,5 @@
 #!/usr/bin/env deno
+
 import UI from "./ui/ui.ts";
 import Prompts from "./ui/prompts.ts";
 import Path from "./utils/path.ts";
